@@ -1,4 +1,4 @@
-% Clean up names, remove extras
+% Clean up and merge names, remove extras
 
 %% Erase names in parens
 Names = string(characterData.Character);
@@ -72,7 +72,7 @@ end
 function characterData = subsetWithoutExtras(characterData,Names)
 % Remove unimportant characters from the list (no offense to the actors)
 % (There are clever ways to do this based on text analytics, but since I was reading the list
-% of characters anyway, I copied/pasted) 
+% of characters anyway, I copied/pasted)
 idx = contains(Names,...
     ["Helicopter","Security","Smithsonian","Johannesburg",...
     "70's","Bartender"," Driver","'s ","SHIELD"," Fan"," Boy","Store ",...

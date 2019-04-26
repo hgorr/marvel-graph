@@ -1,5 +1,7 @@
 function [movieData,characterData,Movie] = readParseMovieData(apikey)
 % Read movie data with the OMDb API and character data from IMDb
+% Example:
+% [movieData,characterData,Movie] = readParseMovieData("1111");
 
 % Get movie and character data for each movie
 Movie = ["Iron Man";"The Incredible Hulk";"Iron Man 2";"Thor"; ...
@@ -15,7 +17,7 @@ characterData = table('Size',[1,2],'VariableTypes',{'string','string'},...
     'VariableNames',{'Character','Movie'});
 for ii = 1:length(Movie)
     % Read movie data from OMDB API
-    OMDbURL = "http://www.omdbapi.com/?t="+Movie(ii)+apikey;
+    OMDbURL = "http://www.omdbapi.com/?t="+Movie(ii)+"&apikey="+apikey;
     opts = weboptions('Timeout',200);
     movieInfo = webread(OMDbURL,opts);
     % Convert to table and add movie info
@@ -49,4 +51,15 @@ MessyMarvelData
 % Remove missing data
 characterData = rmmissing(characterData);
 characterData.Character = removecats(characterData.Character);
+
+% Remove movie poster data if it exists (this data is only
+% available to patrons
+if any(movieData.Properties.VariableNames == "Poster")
+    movieData = removevars(movieData,"Poster");
+end
+% Convert data types of movie data
+movieData = convertvars(movieData,["Year","Metascore","imdbRating"],...
+    "double");
+movieData.Released = datetime(movieData.Released,"InputFormat","dd MMM uuuu"); 
+
 end

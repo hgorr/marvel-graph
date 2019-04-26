@@ -1,7 +1,10 @@
-% Plot 3D graph and rotate and create .gif
+% Plot 3D graph, rotate and create .gif
+
+% Close any open figure windows
+close all
 
 % Create graph
-g = graph(charData.Character,charData.Movie);
+g = graph(mainCharData.Character,mainCharData.Movie);
 figure('units','normalized','outerposition',[0 0 1 1])
 colormap hsv
 p = plot(g,'Layout','force3','UseGravity','on',...
@@ -11,7 +14,7 @@ p.NodeCData = degree(g);
 axis off
 clear frame
 % Rotate and save as .gif
-outfile = 'marvel_graph_mainchar.gif';
+outfile = 'marvel_graph_mainchar1.gif';
 for theta = -180:5:90
     view(theta,0)
     drawnow
