@@ -9,6 +9,7 @@ Graph of the universe (minus some extras like "Security Guard #2","Woman at Pool
 
 ![Marvel Cinematic Universe](/marvel_graph.gif)
 
-A MATLAB Live Script is included to visualize network with different layouts, selected from a dropdown
+A MATLAB Live Script is included to visualize network in with different layouts, selected from a dropdown. For example, the circle layout looks cool (and with the subset of characters, its really informative):
 
 ![Marvel Cinematic Universe (circle)](/circlenonames.jpg)
+![Marvel Cinematic Universe (circle)](/circlesmallernames.jpg)
