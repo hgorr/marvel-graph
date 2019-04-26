@@ -1,5 +1,5 @@
 # marvel-graph
-Graph of Marvel cinematic universe, based on movie data from OMDb and character data from IMDb. Code included - the MATLAB Live Script allows you to select different layouts via dropdown and zoom, pan, rotate the graph to explore.
+Code and example to create a network graph to visualize connections in the Marvel cinematic universe, based on movie data from OMDb and character data from IMDb. 
 
 Graph of main characters
 
